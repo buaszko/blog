@@ -32,16 +32,19 @@ function titleClickHandler(event){
 }
 
 const links = document.querySelectorAll('.titles a');
+//console.log('links:', links);//
 
 for(let link of links){
   link.addEventListener('click', titleClickHandler);
 }
 
+/* function generate titleList */
+
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
 
-function generateTitleLinks(){
+function generateTitleLinks(customSelectror = ''){
 
   /* remove contents of titleList */
 
@@ -50,15 +53,31 @@ function generateTitleLinks(){
 
   /* for each article */
 
+  const articles = document.querySelectorAll(optArticleSelector + customSelectror);
+  let html = '';  
+
+  for (let article of articles) {
     /* get the article id */
+    const articleId = article.getAttribute('id');
 
     /* find the title element */
-
     /* get the title from the title element */
+    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+  
 
     /* create HTML of the link */
+    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
 
     /* insert link into titleList */
+    html = html + linkHTML;
+  }
+
+  titleList.innerHTML = html;
+  const links = document.querySelectorAll('.titles a');
+  
+  for(let link of links){
+    link.addEventListener('click', titleClickHandler);
+  }
 
 }
 
