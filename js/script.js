@@ -102,7 +102,7 @@ function generateTags(){
       for (let tag of articleTagsArray) {
 
       /* generate HTML of the link */
-      const linkHTML = `<li><a href="#tag-${ tag } "> ${ tag } </a></li>`;
+      const linkHTML = `<li><a href="#tag-${ tag }"> ${ tag } </a></li>`;
 
       /* add generated code to html variable */
       html += linkHTML; 
