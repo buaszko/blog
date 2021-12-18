@@ -50,10 +50,13 @@ body {
 
 .sidebar {
   flex: 1 0 0;
+  height: max-content;
 }
 
 .posts {
   flex: 2 0 0;
+  position: relative; 
+  height: 1100px;
 }
 
 .sidebar, .posts {
@@ -88,7 +91,6 @@ body {
 .list-horizontal {
   li {
     display: inline-block;
-    padding-right: 10px;
   }
 }
 
@@ -103,10 +105,17 @@ body {
 /* Post */
 
 .post {
-  display: none;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  opacity: 0;
+  transition: opacity 1s;
   &.active {
-    display: block;
+    opacity: 1;
+    z-index: 100;
   }
+
 }
 
 .post-author {
@@ -118,4 +127,33 @@ body {
   p {
     margin: 0 10px 0 0;
   }
+}
+
+/* Tag Cloud */
+.sidebar .tags {
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+  & a {
+    text-decoration: none;
+    margin-left: 10px;
+  }
+}
+
+.tag-size-1, .tag-size-2 {
+font-size: 16px;
+}
+
+.tag-size-3 {
+font-size: 20px;
+color: grey;
+}
+
+.tag-size-4 {
+  font-size: 22px;
+  
+}
+
+.tag-size-5 {
+  font-size: 25px;
 }
